@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <springProperty scope="context" name="INSTRUMENTATION_KEY"
+                    source="azure.application-insights.instrumentation-key"/>
+
+    <appender name="aiAppender"
+              class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+        <instrumentationKey>${INSTRUMENTATION_KEY}</instrumentationKey>
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="aiAppender" />
+        <appender-ref ref="FILE" />
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <logger name="com.microsoft.applicationinsights" level="INFO"/>
+
+    <logger name="com.microsoft.demoai" level="DEBUG"/>
+
+    <!-- https://logback.qos.ch/manual/configuration.html#shutdownHook and https://jira.qos.ch/browse/LOGBACK-1090
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator">
+        <resetJUL>true</resetJUL>
+    </contextListener>-->
+
+</configuration>

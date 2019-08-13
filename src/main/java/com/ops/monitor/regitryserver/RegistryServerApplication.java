@@ -2,12 +2,14 @@ package com.ops.monitor.regitryserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-public class RegitryServerApplication {
+@EnableEurekaServer
+public class RegistryServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RegitryServerApplication.class, args);
+		SpringApplication.run(RegistryServerApplication.class, args);
 	}
 
 }

@@ -1,0 +1,24 @@
+#============================== Configuration Apache TomCat
+#server:
+#  port: 8761
+logging:
+  level:
+    ROOT: INFO
+    com.ops.monitor: INFO
+
+azure:
+  application-insights:
+    instrumentation-key: ${APPINSIGHTS_INSTRUMENTATIONKEY}
+
+#============================== Configuration Eureka Server
+eureka:
+  #instance:
+  #  hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+   # serviceUrl:
+    #  defaultZone: http://${eureka.instance.hostname}:8080/eureka/
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
+
