@@ -94,7 +94,7 @@
 					<appSettings>
 						<property>
 							<name>JAVA_OPTS</name>
-							<value>-javaagent:D:\home\site\wwwroot\agent\applicationinsights-agent-2.4.1.jar</value>
+							<value>-javaagent:D:\home\site\wwwroot\agent\applicationinsights-agent-2.4.1.jar -Deureka.client.serviceUrl.defaultZone=https://springai.azurewebsites.net/eureka/</value>
 						</property>
 					</appSettings>
 

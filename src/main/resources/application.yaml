@@ -1,10 +1,19 @@
 #============================== Configuration Apache TomCat
-#server:
-#  port: 8761
+server:
+  port: 8761
+
+management:
+  endpoints:
+    web.exposure:
+      include: "*"
+      exclude: beans
+#============================== Configuration Logging
+
 logging:
   level:
     ROOT: INFO
     com.ops.monitor: INFO
+#============================== Configuration Azure AI
 
 azure:
   application-insights:
@@ -12,13 +21,17 @@ azure:
 
 #============================== Configuration Eureka Server
 eureka:
-  #instance:
-  #  hostname: localhost
+  instance:
+    hostname: localhost
+    appname: SERVICE-REGISTRY
+    preferIpAddress: true
   client:
     registerWithEureka: false
     fetchRegistry: false
-   # serviceUrl:
-    #  defaultZone: http://${eureka.instance.hostname}:8080/eureka/
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
-    waitTimeInMsWhenSyncEmpty: 0
+    #waitTimeInMsWhenSyncEmpty: 0
+    #eviction-interval-timer-in-ms: 1000
+    enableSelfPreservation: false
 
