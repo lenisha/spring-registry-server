@@ -79,4 +79,4 @@ Last step is to make sure we have handler that would serve this staticfile as we
 
 It will handle and serve the html file. And now we do not have any 401 errors in the logs and Application Insights.
 
-![metrics](docs/performance-401.png)
+![metrics](docs/performance-no401.png)
