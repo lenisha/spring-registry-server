@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
             .authorizeRequests()
-                /** and enable healthcheck to point to "healthCheckPath": "/actuator/health"
+                /** and enable always on and healthcheck to point to "healthCheckPath": "/actuator/health"
                  *  as described in https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview) **/
                 .antMatchers("/actuator/health").permitAll()
                 .anyRequest().authenticated()
