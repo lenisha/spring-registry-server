@@ -22,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 /** and enable always on and healthcheck to point to "healthCheckPath": "/actuator/health"
                  *  as described in https://github.com/projectkudu/kudu/wiki/Health-Check-(Preview) **/
-                .antMatchers("/actuator/health").permitAll()
+                .antMatchers("/actuator/health").hasIpAddress("127.0.0.1")
                 .anyRequest().authenticated()
                 .and()
             .csrf().ignoringAntMatchers("/eureka/**")
