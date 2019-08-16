@@ -20,8 +20,8 @@ To disable authentication only on this url for the application add following to 
 protected void configure(HttpSecurity http) throws Exception {
     http
         .authorizeRequests()
-             // Permit health endpoint 
-            .antMatchers("/actuator/health").permitAll()
+             // Permit health endpoint only for local invocation
+            .antMatchers("/actuator/health").hasIpAddress("127.0.0.1")
             // require AUTH for all others 
             .anyRequest().authenticated()
             .and()
